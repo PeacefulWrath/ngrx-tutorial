@@ -6,7 +6,7 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { provideEffects } from '@ngrx/effects';
+import { counterReducer } from './states/counter/counter.reducer';
 
 
 export const appConfig: ApplicationConfig = {
@@ -16,5 +16,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideHttpClient(withFetch()),
     provideStore(),
+    provideState({name:"counter",reducer:counterReducer})
   ],
 };
